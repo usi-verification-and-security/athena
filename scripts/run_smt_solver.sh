@@ -124,7 +124,7 @@ elif grep -Fqw "Fatal failure" ${file}_${f:2}.out_smt_solver; then # error resul
 elif grep -Pq '(?<!\.)error' ${file}_${f:2}.out_smt_solver; then # error result; we check if .error is not a substring
     echo "${file}_${f:2} $runtime $memoryUse" >> ../_problem_smt_solver.stats
     result="error"
-elif $(grep -m2 ^ ${file}_${f:2}.out_smt_solver | grep -Fqw "unknown"); then # unknown result; we only check the first two lines to avoid miscategorizing
+elif grep -Pq '(?<!\.)unknown' ${file}_${f:2}.out_smt_solver; then # unknown result; we check if .unknown is not a substring
     echo "${file}_${f:2} $runtime $memoryUse" >> ../_unknown_smt_solver.stats
     result="unknown"
 elif grep -Fqw "sat" ${file}_${f:2}.out_smt_solver; then # SAT result
