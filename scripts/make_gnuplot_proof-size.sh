@@ -18,7 +18,7 @@ function make_plot () {
     file5="../_proof-size_z3_proof_${target}_${chcSolver}.dataPoints"
 
     filenames="$file1 $file2 $file3 $file4 $file5"
-    labels="CVC5-Alethe CVC5-LFSC OpneSMT SMTInterpol Z3"
+    labels="CVC5-Alethe CVC5-LFSC OpenSMT SMTInterpol Z3"
 
     if [[ "$chcSolver" == "eldarica" && "$target" == "LIA-lin" ]]; then
 cat <<EOF >plot.gp # indentation matters here
