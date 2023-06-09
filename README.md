@@ -1,6 +1,6 @@
-# Validation framework for CHC models
+# ATHENA
 
-This is a modular framework for the validation of models produced by CHC solvers. It executes the selected CHC solver(s) for a given set of inputs and if a result is SAT it produces and solves the necessary SMT instances to validate the CHC model. Different SMT solvers can be selected for validation, and if the selected solver produces UNSAT proofs capable of being checked, the framework automatically executes the necessary proof checker.
+The modul<ins>**A**</ins>r cons<ins>**T**</ins>rained <ins>**H**</ins>orn clauses mod<ins>**E**</ins>l validatio<ins>**N**</ins> fr<ins>**A**</ins>mework, ATHENA for short, is a framework for the validation of models produced by CHC solvers. It executes the selected CHC solver(s) for a given set of inputs and if a result is SAT it produces and solves the necessary SMT instances to validate the CHC model. Different SMT solvers can be selected for validation, and if the selected solver produces UNSAT proofs capable of being checked, the framework automatically executes the necessary proof checker.
 
 CHC solvers supported: [Eldarica], [Golem], and [Spacer].
 
