@@ -10,10 +10,10 @@ Proof checkers supported: [Carcara], [LFSC checker], [SMTInterpol checker], and 
 
 ## Instructions
 
-To execute the framework, use:
+To execute the framework, go to the `scripts` folder and execute:
 
 ```
-scripts/evaluate_all.sh [CHC solver] [SMT solver] [SMT mode] [Target] [Num. of threads]
+evaluate_all.sh [CHC solver] [SMT solver] [SMT mode] [Target] [Num. of threads]
 ```
 
 `[CHC solver]` is one of `all`, `none`, `eldarica`, `golem`, or `spacer`.
@@ -28,9 +28,11 @@ scripts/evaluate_all.sh [CHC solver] [SMT solver] [SMT mode] [Target] [Num. of t
 
 The tools' paths and options, as well as the time and memory limits, can be set in the `run_*.sh` files. Please follow, or update, the current tool paths before executing; the tools' binaries have to be gathered separately.
 
+The input CHC files have to follow the CHC-COMP format. If your files are following a different format, please use the [CHC-COMP formatter] to adjust them.
+
 ## Metrics
 
-The classification of the results obtained, e.g., SAT or UNSAT, can be seen by executing `scripts/stats_all.sh`. To gather the average sizes of models and proofs, as well as the average runtimes and memory consumptions, execute `scripts/logging_stats_all.sh` followed by `scripts/python3 avg_stats_all.py [Target]`. To generate plots displaying the sizes of models and proofs execute `scripts/make_gnuplot_proof-size.sh`.
+The classification of the results obtained, e.g., SAT or UNSAT, can be seen by executing `stats_all.sh` in the `scripts` folder. To gather the average sizes of models and proofs, as well as the average runtimes and memory consumptions, execute `logging_stats_all.sh` followed by `python3 avg_stats_all.py [Target]`. To generate plots displaying the sizes of models and proofs execute `make_gnuplot_proof-size.sh`.
 
 ## Notes
 
@@ -64,3 +66,4 @@ A large part of the [SMT instance generator] was implemented by Fedor Gromov.
 [LFSC checker 9aab068]: https://github.com/cvc5/LFSC/commit/9aab068dec2c5a9f5f2bf465590005c638078e95
 [latest version of TSWC]: https://verify.inf.usi.ch/certificate-producing-opensmt2
 [SMT instance generator]: https://github.com/usi-verification-and-security/chc-model-validator/blob/master/scripts/generate_chc_witness_checks.py
+[CHC-COMP formatter]: https://github.com/chc-comp/scripts/tree/master/format
