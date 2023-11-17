@@ -40,6 +40,10 @@ The framework is currently capable of validating models produced for LIA instanc
 
 A large part of the [SMT instance generator] was implemented by Fedor Gromov.
 
+## Publication
+
+To know more about the theory behind ATHENA, as well as its applications, have a look at our [iFM23 paper].
+
 [Eldarica]: https://github.com/uuverifiers/eldarica
 [Golem]: https://github.com/usi-verification-and-security/golem
 [Spacer]: https://github.com/Z3Prover/z3
@@ -67,3 +71,4 @@ A large part of the [SMT instance generator] was implemented by Fedor Gromov.
 [latest version of TSWC]: https://verify.inf.usi.ch/certificate-producing-opensmt2
 [SMT instance generator]: https://github.com/usi-verification-and-security/chc-model-validator/blob/master/scripts/generate_chc_witness_checks.py
 [CHC-COMP formatter]: https://github.com/chc-comp/scripts/tree/master/format
+[iFM23 paper]: https://doi.org/10.1007/978-3-031-47705-8_4
