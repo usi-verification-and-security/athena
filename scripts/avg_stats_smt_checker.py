@@ -58,27 +58,32 @@ def set_target(stat, smt_checker, smt_solver, chc_solver):
     else:
         get_avg(stat, smt_checker, smt_solver, chc_solver, "LIA-lin")
         get_avg(stat, smt_checker, smt_solver, chc_solver, "LIA-nonlin")
+        get_avg(stat, smt_checker, smt_solver, chc_solver, "LIA-Arrays-lin")
+        get_avg(stat, smt_checker, smt_solver, chc_solver, "LIA-Arrays-nonlin")
 
 def set_chc_solver(stat, smt_checker, smt_solver):
-    set_target(stat, smt_checker, smt_solver, "golem")
     set_target(stat, smt_checker, smt_solver, "eldarica")
+    set_target(stat, smt_checker, smt_solver, "golem")
     set_target(stat, smt_checker, smt_solver, "spacer")
 
 def set_smt_solver(stat, smt_checker):
-    if smt_checker == "tswc":
-        set_chc_solver(stat, smt_checker, "opensmt")
-    elif smt_checker == "lfsc":
-        set_chc_solver(stat, smt_checker, "cvc5-lfsc")
+    if smt_checker == "alfc":
+        set_chc_solver(stat, smt_checker, "cvc5-aletheLF")
     elif smt_checker == "carcara":
         set_chc_solver(stat, smt_checker, "cvc5-alethe")
+    elif smt_checker == "lfsc":
+        set_chc_solver(stat, smt_checker, "cvc5-lfsc")
     elif smt_checker == "smtinterpol-checker":
         set_chc_solver(stat, smt_checker, "smtinterpol")
+    elif smt_checker == "tswc":
+        set_chc_solver(stat, smt_checker, "opensmt")
 
 def set_smt_checker(stat):
-    set_smt_solver(stat, "tswc")
-    set_smt_solver(stat, "lfsc")
+    set_smt_solver(stat, "alfc")
     set_smt_solver(stat, "carcara")
+    set_smt_solver(stat, "lfsc")    
     set_smt_solver(stat, "smtinterpol-checker")
+    set_smt_solver(stat, "tswc")
 
 def set_stat():
     print("--------------- runtime (s)")

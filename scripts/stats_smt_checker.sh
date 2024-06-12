@@ -1,33 +1,38 @@
 #!/bin/bash
 
-smtChecker="$1" # tswc, lfsc, carcara, smtinterpol-checker
-smtSolver="$2"  # opensmt, z3, verit, cvc5, cvc5-lfsc, cvc5-alethe, smtinterpol
-target="$3"     # test, LIA-lin, LIA-nonlin
-chcSolver="$4"  # golem, eldarica, spacer
+smtChecker="$1"    # alfc, carcara, lfsc, smtinterpol-checker, tswc
+smtSolver="$2"     # cvc5-lfsc, cvc5-alethe, cvc5-aletheLF, opensmt, smtinterpol, verit, z3
+target="$3"        # test, LIA-lin, LIA-nonlin, LIA-Arrays-lin, LIA-Arrays-nonlin
+chcSolver="$4"     # eldarica, golem, spacer
+printForLatex="$5" # true, false
 
-if [[ "$#" -ne 4 ]]; then
-  echo "Usage: $0 smtChecker smtSolver target chcSolver"
+if [[ "$#" -ne 5 ]]; then
+  echo "Usage: $0 smtChecker smtSolver target chcSolver printForLatex"
   exit 1
 fi
 
-if [[ "$smtChecker" != "tswc" && "$smtChecker" != "lfsc" && "$smtChecker" != "carcara" && "$smtChecker" != "smtinterpol-checker" ]]; then
-    echo "smtChecker invalid: use tswc, lfsc, carcara, or smtinterpol-checker"
+if [[ "$smtChecker" != "alfc" && "$smtChecker" != "carcara" && "$smtChecker" != "lfsc" && "$smtChecker" != "smtinterpol-checker" && "$smtChecker" != "tswc" ]]; then
+    echo "smtChecker invalid: use alfc, carcara, lfsc, smtinterpol-checker, or tswc"
     exit 1
 fi
 
-if [[ "$smtSolver" != "opensmt" && "$smtSolver" != "z3" && "$smtSolver" != "verit" && "$smtSolver" != "cvc5" && "$smtSolver" != "cvc5-lfsc" && "$smtSolver" != "cvc5-alethe" && "$smtSolver" != "smtinterpol" ]]; then
-    echo "smtSolver invalid: use opensmt, z3, verit, cvc5, cvc5-lfsc, cvc5-alethe, or smtinterpol"
+if [[ "$smtSolver" != "cvc5-lfsc" && "$smtSolver" != "cvc5-alethe" && "$smtSolver" != "cvc5-aletheLF" && "$smtSolver" != "opensmt" && "$smtSolver" != "smtinterpol" && "$smtSolver" != "verit" && "$smtSolver" != "z3" ]]; then
+    echo "smtSolver invalid: use cvc5-lfsc, cvc5-alethe, cvc5-aletheLF, opensmt, smtinterpol, verit, or z3"
     exit 1
 fi
 
-if [[ "$target" != "test" && "$target" != "LIA-lin" && "$target" != "LIA-nonlin" ]]; then
-    echo "target invalid: use test, LIA-lin, or LIA-nonlin"
+if [[ "$target" != "test" && "$target" != "LIA-lin" && "$target" != "LIA-nonlin" && "$target" != "LIA-Arrays-lin" && "$target" != "LIA-Arrays-nonlin" ]]; then
+    echo "target invalid: use test, LIA-lin, LIA-nonlin, LIA-Arrays-lin, or LIA-Arrays-nonlin"
     exit 1
 fi
 
-if [[ "$chcSolver" != "golem" && "$chcSolver" != "eldarica" && "$chcSolver" != "spacer" ]]; then
-    echo "chcSolver invalid: use golem, eldarica, or spacer"
+if [[ "$chcSolver" != "eldarica" && "$chcSolver" != "golem" && "$chcSolver" != "spacer" ]]; then
+    echo "chcSolver invalid: use eldarica, golem, or spacer"
     exit 1
+fi
+
+if [[ "$printForLatex" != "true" && "$printForLatex" != "false" ]]; then
+    printForLatex=false
 fi
 
 #########################
@@ -72,15 +77,37 @@ count_entries "_uncategorized_smt_checker.stats" "count_uncategorized"
 
 #########################
 
-echo "********** Results for $smtChecker with $target from $smtSolver and $chcSolver **********"
+count_verified=$((count_verified + count_holey))
 
-total=$((count_verified + count_invalid + count_unknown + count_problem + count_timeout + count_memout + count_uncategorized))
-echo "Benchmarks analysed: $total"
+if [[ "$printForLatex" == "false" ]]; then
+    total=$((count_verified + count_invalid + count_unknown + count_problem + count_timeout + count_memout + count_uncategorized))
 
-echo "verified: $count_verified ($count_holey verified but holey)"
-echo "invalid: $count_invalid"
-echo "unknown: $count_unknown"
-echo "problem: $count_problem"
-echo "timeout: $count_timeout"
-echo "memout: $count_memout"
-echo "uncategorized: $count_uncategorized"
+    echo "********** Results for $smtChecker with $target from $smtSolver and $chcSolver **********"    
+    echo "Benchmarks analysed: $total"
+    echo "verified: $count_verified ($count_holey verified but holey)"
+    echo "invalid: $count_invalid"
+    echo "unknown: $count_unknown"
+    echo "timeout: $count_timeout"
+    echo "memout: $count_memout"
+    echo "problem: $count_problem"
+    echo "uncategorized: $count_uncategorized"
+else
+    if [[ "$smtChecker" == "alfc" ]]; then
+        smtCheckerLatex="\alfc{}"
+    elif [[ "$smtChecker" == "carcara" ]]; then
+        smtCheckerLatex="\carcara{}"
+    elif [[ "$smtChecker" == "lfsc" ]]; then
+        smtCheckerLatex="\lfsc{}"
+    elif [[ "$smtChecker" == "smtinterpol-checker" ]]; then
+        smtCheckerLatex="\smtinterpol{}"
+    elif [[ "$smtChecker" == "tswc" ]]; then
+        smtCheckerLatex="\tswc{}"
+    fi
+
+    echo "        & $smtCheckerLatex"
+    echo "            & $count_verified"
+    echo "            & $count_invalid"
+    echo "            & $count_timeout"
+    echo "            & $count_memout"
+    echo "            & $count_problem \\\\"
+fi

@@ -102,10 +102,19 @@ def add_variables(bm, fun_def, theory):
                     is_variable = 0
                     if variable != "":
                         free_variables.add(variable)
-                        closed_br = bm.find(")", i)
-                        var_type = bm[i:closed_br]
+                        close_pr = bm.find(")", i)
+                        close_pr_count = 1
+                        open_pr_count = bm[i:close_pr].count('(')                        
+                        while open_pr_count > close_pr_count:
+                            close_pr = bm.find(")", close_pr + 1)
+                            close_pr_count += 1
+                            open_pr_count = bm[i:close_pr].count('(')
+                        var_type = bm[i:close_pr]
+                        if "Array" in var_type:
+                            var_type = var_type + ")"
                         free_variables_types[variable] = var_type
                         variable = ""
+                        i = close_pr
             i += 1
 
     bench_with_all_defs = bm[:position] + "\n" + fun_def + "\n"

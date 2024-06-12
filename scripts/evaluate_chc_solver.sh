@@ -1,7 +1,7 @@
 #!/bin/bash
 
-chcSolver="$1" # all, none, golem, eldarica, spacer
-target="$2"    # all, test, LIA-lin, LIA-nonlin
+chcSolver="$1" # all, none, eldarica, golem, spacer
+target="$2"    # all, test, LIA-lin, LIA-nonlin, LIA-Arrays-lin, LIA-Arrays-nonlin
 threads="$3"   # e.g. 16
 
 if [[ "$#" -ne 3 ]]; then
@@ -9,13 +9,13 @@ if [[ "$#" -ne 3 ]]; then
   exit 1
 fi
 
-if [[ "$chcSolver" != "all" && "$chcSolver" != "none" && "$chcSolver" != "golem" && "$chcSolver" != "eldarica" && "$chcSolver" != "spacer" ]]; then
-    echo "chcSolver invalid: use all, none, golem, eldarica, or spacer"
+if [[ "$chcSolver" != "all" && "$chcSolver" != "none" && "$chcSolver" != "eldarica" && "$chcSolver" != "golem" && "$chcSolver" != "spacer" ]]; then
+    echo "chcSolver invalid: use all, none, eldarica, golem, or spacer"
     exit 1
 fi
 
-if [[ "$target" != "all" && "$target" != "test" && "$target" != "LIA-lin" && "$target" != "LIA-nonlin" ]]; then
-    echo "target invalid: use all, test, LIA-lin, or LIA-nonlin"
+if [[ "$target" != "all" && "$target" != "test" && "$target" != "LIA-lin" && "$target" != "LIA-nonlin" && "$target" != "LIA-Arrays-lin" && "$target" != "LIA-Arrays-nonlin" ]]; then
+    echo "target invalid: use all, test, LIA-lin, LIA-nonlin, LIA-Arrays-lin, or LIA-Arrays-nonlin"
     exit 1
 fi
 
@@ -31,6 +31,9 @@ function delete_folder () {
     # $2 target
 
     rm -rf "results/witnesses_${1}_$2"; mkdir "results/witnesses_${1}_$2"
+    if [[ "$1" != "golem" || ("$2" != "LIA-Arrays-lin" && "$2" != "LIA-Arrays-nonlin") ]]; then # golem does not support arrays
+        touch results/witnesses_${1}_$2/_sat_chc_solver.stats # required for evaluate_smt_solver.sh
+    fi
 }
 
 function delete_by_target () {
@@ -39,6 +42,8 @@ function delete_by_target () {
     if [[ "$target" == "all" ]]; then
         delete_folder $1 "LIA-lin"
         delete_folder $1 "LIA-nonlin"
+        delete_folder $1 "LIA-Arrays-lin"
+        delete_folder $1 "LIA-Arrays-nonlin"
     else
         delete_folder $1 $target
     fi
@@ -46,8 +51,8 @@ function delete_by_target () {
 
 function delete_by_chcSolver () {
     if [[ "$chcSolver" == "all" ]]; then
-        delete_by_target "golem"
         delete_by_target "eldarica"
+        delete_by_target "golem"
         delete_by_target "spacer"
     elif [[ "$chcSolver" != "none" ]]; then
         delete_by_target $chcSolver
@@ -64,7 +69,7 @@ function run_file () {
     # $1 chcSolver
     # $2 target
 
-    echo "---------- Running $1 with $2 ----------"
+    echo "---------------- Running $1 with $2 ----------------"
 
     cd "benchmarks/$2"
     rm -f "run_${1}_$2.calls"
@@ -82,6 +87,8 @@ function run_by_target () {
     if [[ "$target" == "all" ]]; then
         run_file $1 "LIA-lin"
         run_file $1 "LIA-nonlin"
+        run_file $1 "LIA-Arrays-lin"
+        run_file $1 "LIA-Arrays-nonlin"
     else
         run_file $1 $target
     fi
@@ -89,8 +96,8 @@ function run_by_target () {
 
 function run_by_chcSolver () {
     if [[ "$chcSolver" == "all" ]]; then
-        run_by_target "golem"
         run_by_target "eldarica"
+        run_by_target "golem"
         run_by_target "spacer"
     elif [[ "$chcSolver" != "none" ]]; then
         run_by_target $chcSolver

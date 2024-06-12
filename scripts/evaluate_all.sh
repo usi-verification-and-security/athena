@@ -1,9 +1,9 @@
 #!/bin/bash
 
-chcSolver="$1" # all, none, golem, eldarica, spacer
-smtSolver="$2" # all, none, opensmt, z3, verit, cvc5, smtinterpol
+chcSolver="$1" # all, none, eldarica, golem, spacer
+smtSolver="$2" # all, none, cvc5, opensmt, smtinterpol, verit, z3
 smtMode="$3"   # all, proof, noProof
-target="$4"    # all, test, LIA-lin, LIA-nonlin
+target="$4"    # all, test, LIA-lin, LIA-nonlin, LIA-Arrays-lin, LIA-Arrays-nonlin
 threads="$5"   # e.g. 16
 
 if [[ "$#" -ne 5 ]]; then
@@ -11,13 +11,13 @@ if [[ "$#" -ne 5 ]]; then
   exit 1
 fi
 
-if [[ "$chcSolver" != "all" && "$chcSolver" != "none" && "$chcSolver" != "golem" && "$chcSolver" != "eldarica" && "$chcSolver" != "spacer" ]]; then
-    echo "chcSolver invalid: use all, none, golem, eldarica, or spacer"
+if [[ "$chcSolver" != "all" && "$chcSolver" != "none" && "$chcSolver" != "eldarica" && "$chcSolver" != "golem" && "$chcSolver" != "spacer" ]]; then
+    echo "chcSolver invalid: use all, none, eldarica, golem, or spacer"
     exit 1
 fi
 
-if [[ "$smtSolver" != "all" && "$smtSolver" != "none" && "$smtSolver" != "opensmt" && "$smtSolver" != "z3" && "$smtSolver" != "verit" && "$smtSolver" != "cvc5" && "$smtSolver" != "smtinterpol" ]]; then
-    echo "Tool invalid: use all, none, opensmt, z3, verit, cvc5, or smtinterpol"
+if [[ "$smtSolver" != "all" && "$smtSolver" != "none" && "$smtSolver" != "cvc5" && "$smtSolver" != "opensmt" && "$smtSolver" != "smtinterpol" && "$smtSolver" != "verit" && "$smtSolver" != "z3" ]]; then
+    echo "smtSolver invalid: use all, none, cvc5, opensmt, smtinterpol, verit, or z3"
     exit 1
 fi
 
@@ -26,8 +26,8 @@ if [[ "$smtMode" != "all" && "$smtMode" != "proof" && "$smtMode" != "noProof" ]]
     exit 1
 fi
 
-if [[ "$target" != "all" && "$target" != "test" && "$target" != "LIA-lin" && "$target" != "LIA-nonlin" ]]; then
-    echo "target invalid: use all, test, LIA-lin, or LIA-nonlin"
+if [[ "$target" != "all" && "$target" != "test" && "$target" != "LIA-lin" && "$target" != "LIA-nonlin" && "$target" != "LIA-Arrays-lin" && "$target" != "LIA-Arrays-nonlin" ]]; then
+    echo "target invalid: use all, test, LIA-lin, LIA-nonlin, LIA-Arrays-lin, or LIA-Arrays-nonlin"
     exit 1
 fi
 

@@ -58,22 +58,26 @@ def set_target(stat, smt_mode, smt_solver, chc_solver):
     else:
         get_avg(stat, smt_mode, smt_solver, chc_solver, "LIA-lin")
         get_avg(stat, smt_mode, smt_solver, chc_solver, "LIA-nonlin")
+        get_avg(stat, smt_mode, smt_solver, chc_solver, "LIA-Arrays-lin")
+        get_avg(stat, smt_mode, smt_solver, chc_solver, "LIA-Arrays-nonlin")
 
 def set_chc_solver(stat, smt_mode, smt_solver):
-    set_target(stat, smt_mode, smt_solver, "golem")
     set_target(stat, smt_mode, smt_solver, "eldarica")
+    set_target(stat, smt_mode, smt_solver, "golem")
     set_target(stat, smt_mode, smt_solver, "spacer")
 
 def set_smt_solver(stat, smt_mode):
-    set_chc_solver(stat, smt_mode, "opensmt")
-    set_chc_solver(stat, smt_mode, "z3")
-    set_chc_solver(stat, smt_mode, "verit")
-    set_chc_solver(stat, smt_mode, "smtinterpol")
     if smt_mode == "proof":
         set_chc_solver(stat, smt_mode, "cvc5-lfsc")
         set_chc_solver(stat, smt_mode, "cvc5-alethe")
+        set_chc_solver(stat, smt_mode, "cvc5-aletheLF")
     else:
         set_chc_solver(stat, smt_mode, "cvc5")
+
+    set_chc_solver(stat, smt_mode, "opensmt")
+    set_chc_solver(stat, smt_mode, "smtinterpol")
+    set_chc_solver(stat, smt_mode, "verit")
+    set_chc_solver(stat, smt_mode, "z3")    
 
 def set_smt_mode(stat):
     if stat != "proof-size":

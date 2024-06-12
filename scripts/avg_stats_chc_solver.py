@@ -58,10 +58,12 @@ def set_target(stat, chc_solver):
     else:
         get_avg(stat, chc_solver, "LIA-lin")
         get_avg(stat, chc_solver, "LIA-nonlin")
+        get_avg(stat, chc_solver, "LIA-Arrays-lin")
+        get_avg(stat, chc_solver, "LIA-Arrays-nonlin")
 
 def set_chc_solver(stat):
-    set_target(stat, "golem")
     set_target(stat, "eldarica")
+    set_target(stat, "golem")
     set_target(stat, "spacer")
 
 def set_stat():
