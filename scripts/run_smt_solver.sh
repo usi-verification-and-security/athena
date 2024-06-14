@@ -143,7 +143,7 @@ elif grep -Fqw "Fatal failure" ${file}_${f:2}.out_smt_solver; then # error resul
 elif grep -Pq '(?<!\.|\$)error' ${file}_${f:2}.out_smt_solver; then # error result; we check if .error and $error are not a substring
     echo "${file}_${f:2} $runtime $memoryUse" >> ../_problem_smt_solver.stats
     result="error"
-elif $(grep -m3 ^ ${file}_${f:2}.out_smt_solver | grep -Fqw "unknown"); then # unknown result; we only check the first three lines to avoid miscategorizing
+elif grep -Pq '(?<!\.|\$)unknown' ${file}_${f:2}.out_smt_solver; then # unknown result; we check if .unknown and $unknown are not a substring
     echo "${file}_${f:2} $runtime $memoryUse" >> ../_unknown_smt_solver.stats
     result="unknown"
 elif [[ "$smtSolver" == "smtinterpol" ]] && grep -Fqw "unknown" ${file}_${f:2}.out_smt_solver; then # unknown result; only for smtinterpol
