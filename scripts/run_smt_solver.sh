@@ -122,7 +122,7 @@ result="none"
 if [[ "$exit_status" -eq 152 ]] || grep -Fqw "interrupted by timeout" ${file}_${f:2}.out_smt_solver || grep -Fqw "CPU time limit exceeded" ${file}_${f:2}.out_smt_solver || grep -Fqw "Killed" ${file}_${f:2}.out_smt_solver; then # timeout
     echo "${file}_${f:2} $runtime $memoryUse" >> ../_timeout_smt_solver.stats
     result="timeout"
-elif [[ "$exit_status" -eq 139 ]] || grep -Fqw "out of memory" ${file}_${f:2}.out_smt_solver || grep -Fqw "Invalid memory reference" ${file}_${f:2}.out_smt_solver || grep -Fqw "OutOfMemoryError" ${file}_${f:2}.out_smt_solver || grep -Fqw "StackOverflowError" ${file}_${f:2}.out_smt_solver; then # memout
+elif [[ "$exit_status" -eq 139 ]] || grep -Fqw "out of memory" ${file}_${f:2}.out_smt_solver || grep -Fqw "Invalid memory reference" ${file}_${f:2}.out_smt_solver || grep -Fqw "OutOfMemoryError" ${file}_${f:2}.out_smt_solver || grep -Fqw "StackOverflowError" ${file}_${f:2}.out_smt_solver || grep -Fqw "std::bad_alloc" ${file}_${f:2}.out_smt_solver; then # memout
     echo "${file}_${f:2} $runtime $memoryUse" >> ../_memout_smt_solver.stats
     result="memout"
 elif grep -Fqw "error : Non linear expression" ${file}_${f:2}.out_smt_solver; then # unsupported expression 
