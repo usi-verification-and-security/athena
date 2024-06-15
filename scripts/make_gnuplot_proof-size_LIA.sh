@@ -11,15 +11,15 @@ function make_plot () {
 
     plotName="plot_proof-size_${chcSolver}_${target}"
 
-    file1="../_proof-size_cvc5-aletheLF_proof_${target}_${chcSolver}.dataPoints"
-    file2="../_proof-size_cvc5-alethe_proof_${target}_${chcSolver}.dataPoints"
+    file1="../_proof-size_cvc5-alethe_proof_${target}_${chcSolver}.dataPoints"
+    file2="../_proof-size_cvc5-aletheLF_proof_${target}_${chcSolver}.dataPoints"
     file3="../_proof-size_cvc5-lfsc_proof_${target}_${chcSolver}.dataPoints"
     file4="../_proof-size_opensmt_proof_${target}_${chcSolver}.dataPoints"
     file5="../_proof-size_smtinterpol_proof_${target}_${chcSolver}.dataPoints"
     file6="../_proof-size_z3_proof_${target}_${chcSolver}.dataPoints"
 
     filenames="$file1 $file2 $file3 $file4 $file5 $file6"
-    labels="cvc5-AletheLF cvc5-Alethe cvc5-LFSC OpenSMT SMTInterpol Z3"
+    labels="cvc5-Alethe cvc5-AletheLF cvc5-LFSC OpenSMT SMTInterpol Z3"
 
     if [[ "$chcSolver" == "eldarica" && "$target" == "LIA-lin" ]]; then
 cat <<EOF >plot.gp # indentation matters here
@@ -31,10 +31,10 @@ set bmargin at screen 0.10
 set tmargin at screen 0.90
 set grid ytics
 set logscale y
-set xrange [0:5500]
-set yrange [10:1000000000]
-set xtics (0, "1 K" 1000, "2 K" 2000, "3 K" 3000, "4 K" 4000, "5 K" 5000)
-set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000)
+set xrange [0:1500]
+set yrange [10:10000000000]
+set xtics (0, "375" 375, "750" 750, "1125" 1125, "1500" 1500)
+set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000, "10 GB" 10000000000)
 set key top left
 set key samplen 1
 set key box
@@ -55,10 +55,10 @@ set bmargin at screen 0.10
 set tmargin at screen 0.90
 set grid ytics
 set logscale y
-set xrange [0:6500]
-set yrange [10:1000000000]
-set xtics (0, "1 K" 1000, "2 K" 2000, "3 K" 3000, "4 K" 4000, "5 K" 5000, "6 K" 6000)
-set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000)
+set xrange [0:15000]
+set yrange [10:10000000000]
+set xtics (0, "3750" 3750, "7500" 7500, "11250" 11250, "15000" 15000)
+set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000, "10 GB" 10000000000)
 set key top left
 set key samplen 1
 set key box
@@ -79,10 +79,10 @@ set bmargin at screen 0.10
 set tmargin at screen 0.90
 set grid ytics
 set logscale y
-set xrange [0:5500]
-set yrange [10:1000000000]
-set xtics (0, "1 K" 1000, "2 K" 2000, "3 K" 3000, "4 K" 4000, "5 K" 5000)
-set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000)
+set xrange [0:1500]
+set yrange [10:10000000000]
+set xtics (0, "375" 375, "750" 750, "1125" 1125, "1500" 1500)
+set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000, "10 GB" 10000000000)
 set key top left
 set key samplen 1
 set key box
@@ -103,10 +103,10 @@ set bmargin at screen 0.10
 set tmargin at screen 0.90
 set grid ytics
 set logscale y
-set xrange [0:26000]
-set yrange [10:1000000000]
-set xtics (0, "4 K" 4000, "8 K" 8000, "12 K" 12000, "16 K" 16000, "20 K" 20000, "24 K" 24000)
-set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000)
+set xrange [0:15000]
+set yrange [10:10000000000]
+set xtics (0, "3750" 3750, "7500" 7500, "11250" 11250, "15000" 15000)
+set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000, "10 GB" 10000000000)
 set key top left
 set key samplen 1
 set key box
@@ -127,10 +127,10 @@ set bmargin at screen 0.10
 set tmargin at screen 0.90
 set grid ytics
 set logscale y
-set xrange [0:16500]
-set yrange [10:1000000000]
-set xtics (0, "3 K" 3000, "6 K" 6000, "9 K" 9000, "12 K" 12000, "15 K" 15000)
-set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000)
+set xrange [0:1500]
+set yrange [10:10000000000]
+set xtics (0, "375" 375, "750" 750, "1125" 1125, "1500" 1500)
+set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000, "10 GB" 10000000000)
 set key top left
 set key samplen 1
 set key box
@@ -151,10 +151,10 @@ set bmargin at screen 0.10
 set tmargin at screen 0.90
 set grid ytics
 set logscale y
-set xrange [0:39000]
-set yrange [10:1000000000]
-set xtics (0, "6 K" 6000, "12 K" 12000, "18 K" 18000, "24 K" 24000, "30 K" 30000, "36 K" 36000)
-set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000)
+set xrange [0:15000]
+set yrange [10:10000000000]
+set xtics (0, "3750" 3750, "7500" 7500, "11250" 11250, "15000" 15000)
+set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000, "10 GB" 10000000000)
 set key top left
 set key samplen 1
 set key box

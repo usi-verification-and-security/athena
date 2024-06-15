@@ -31,10 +31,10 @@ set bmargin at screen 0.10
 set tmargin at screen 0.90
 set grid ytics
 set logscale y
-set xrange [0:6500]
-set yrange [10:1000000000]
-set xtics (0, "1 K" 1000, "2 K" 2000, "3 K" 3000, "4 K" 4000, "5 K" 5000, "6 K" 6000)
-set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000)
+set xrange [0:1000]
+set yrange [10:10000000000]
+set xtics (0, "250" 250, "500" 500, "750" 750, "1000" 1000)
+set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000, "10 GB" 10000000000)
 set key top left
 set key samplen 1
 set key box
@@ -55,10 +55,10 @@ set bmargin at screen 0.10
 set tmargin at screen 0.90
 set grid ytics
 set logscale y
-set xrange [0:6500]
-set yrange [10:1000000000]
-set xtics (0, "1 K" 1000, "2 K" 2000, "3 K" 3000, "4 K" 4000, "5 K" 5000, "6 K" 6000)
-set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000)
+set xrange [0:10000]
+set yrange [10:10000000000]
+set xtics (0, "2500" 2500, "5000" 5000, "7500" 7500, "10000" 10000)
+set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000, "10 GB" 10000000000)
 set key top left
 set key samplen 1
 set key box
@@ -79,10 +79,10 @@ set bmargin at screen 0.10
 set tmargin at screen 0.90
 set grid ytics
 set logscale y
-set xrange [0:39000]
-set yrange [10:1000000000]
-set xtics (0, "6 K" 6000, "12 K" 12000, "18 K" 18000, "24 K" 24000, "30 K" 30000, "36 K" 36000)
-set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000)
+set xrange [0:1000]
+set yrange [10:10000000000]
+set xtics (0, "250" 250, "500" 500, "750" 750, "1000" 1000)
+set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000, "10 GB" 10000000000)
 set key top left
 set key samplen 1
 set key box
@@ -103,10 +103,10 @@ set bmargin at screen 0.10
 set tmargin at screen 0.90
 set grid ytics
 set logscale y
-set xrange [0:39000]
-set yrange [10:1000000000]
-set xtics (0, "6 K" 6000, "12 K" 12000, "18 K" 18000, "24 K" 24000, "30 K" 30000, "36 K" 36000)
-set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000)
+set xrange [0:10000]
+set yrange [10:10000000000]
+set xtics (0, "2500" 2500, "5000" 5000, "7500" 7500, "10000" 10000)
+set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, "1 MB" 1000000, "10 MB" 10000000, "100 MB" 100000000, "1 GB" 1000000000, "10 GB" 10000000000)
 set key top left
 set key samplen 1
 set key box
