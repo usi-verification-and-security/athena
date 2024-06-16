@@ -77,8 +77,6 @@ count_entries "_uncategorized_smt_checker.stats" "count_uncategorized"
 
 #########################
 
-count_verified=$((count_verified + count_holey))
-
 if [[ "$printForLatex" == "false" ]]; then
     total=$((count_verified + count_invalid + count_unknown + count_problem + count_timeout + count_memout + count_uncategorized))
 
