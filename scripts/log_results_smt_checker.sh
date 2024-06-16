@@ -32,6 +32,7 @@ function delete_result_smt_checker () {
     # $2 smtSolver
 
     rm -f _results_smt_checker_${1}_smt_solver_${2}.stats
+    # TODO also remove files inside each benchmark folder
 }
 
 #########################
