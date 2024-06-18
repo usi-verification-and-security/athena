@@ -13,7 +13,7 @@ Proof checkers supported: [alfc], [Carcara], [LFSC checker], [SMTInterpol checke
 ATHENA has been developed for a Linux environment and requires the following dependencies:
 
   * [GNU Parallel] to execute the selected tools.
-  * [Python 3] to gatherand display the results obtained.
+  * [Python 3] to gather and display the results obtained.
   * [gnuplot] to produce plots on demand.
 
 ## Instructions
