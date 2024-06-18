@@ -38,7 +38,7 @@ set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, 
 set key top left
 set key samplen 1
 set key box
-set key width -3.5
+set key width -7.5
 set key height 0.5
 set key font ",16"
 filenames = "${filenames}"
@@ -62,7 +62,7 @@ set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, 
 set key top left
 set key samplen 1
 set key box
-set key width -3.5
+set key width -7.5
 set key height 0.5
 set key font ",16"
 filenames = "${filenames}"
@@ -86,7 +86,7 @@ set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, 
 set key top left
 set key samplen 1
 set key box
-set key width -3.5
+set key width -7.5
 set key height 0.5
 set key font ",16"
 filenames = "${filenames}"
@@ -110,7 +110,7 @@ set ytics ("10 B" 10, "100 B" 100, "1 KB" 1000, "10 KB" 10000, "100 KB" 100000, 
 set key top left
 set key samplen 1
 set key box
-set key width -3.5
+set key width -7.5
 set key height 0.5
 set key font ",16"
 filenames = "${filenames}"
