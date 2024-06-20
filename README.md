@@ -12,7 +12,7 @@ Proof checkers supported: [alfc], [Carcara], [LFSC checker], [SMTInterpol checke
 
 ATHENA has been developed for a Linux environment and requires the following dependencies:
 
-  * [GNU Parallel] to execute the selected tools.
+  * [GNU parallel] to execute the selected tools.
   * [Python 3] to gather and display the results obtained.
   * [gnuplot] to produce plots on demand.
 
@@ -38,7 +38,7 @@ By default ATHENA searches for the tools it needs in a local folder named `binar
 
 The input CHC files have to follow the CHC-COMP format. If your files are following a different format, please use the [CHC-COMP formatter] to adjust them.
 
-## Metrics
+### Metrics
 
 To gather the average sizes of models and proofs, as well as the average runtimes and memory consumptions, execute `log_stats_all.sh` followed by `python3 avg_stats_all.py` in the `scripts` folder. After that, the classification of individual tool results obtained, e.g., SAT or UNSAT, can be seen by executing `stats_all.sh`. To generate plots displaying the sizes of models and proofs execute `make_gnuplot_proof-size.sh`.
 
@@ -58,7 +58,7 @@ A large part of the [SMT instance generator] was implemented by Fedor Gromov.
 
 To know more about the theory behind ATHENA, as well as its applications, have a look at our [iFM23 paper].
 
-[GNU Parallel]: https://www.gnu.org/software/parallel
+[GNU parallel]: https://www.gnu.org/software/parallel
 [Python 3]: https://www.python.org/downloads
 [gnuplot]: http://www.gnuplot.info
 
