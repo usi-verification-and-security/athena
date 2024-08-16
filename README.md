@@ -6,7 +6,7 @@ CHC solvers supported: [Eldarica], [Golem], and [Spacer].
 
 SMT solvers supported: [cvc5], [OpenSMT], [SMTInterpol], [veriT], and [Z3].
 
-Proof checkers supported: [alfc], [Carcara], [LFSC checker], [SMTInterpol checker], and [TSWC].
+Proof checkers supported: [alfc] [^1], [Carcara], [LFSC checker], [SMTInterpol checker], and [TSWC].
 
 ## Dependencies
 
@@ -48,15 +48,19 @@ To aggregate all individual tool results and to establish the validity of the CH
 
 The framework is currently capable of validating models produced for LIA and ALIA benchmarks, and has been used in the validation of the benchmarks from [CHC-COMP 2022] and [CHC-COMP 2024].
 
-The [2022 benchmarks] used came from the LIA-lin and LIA-nonlin tracks, and have been validated with the following tools: [Eldarica v2.0.8], [Golem v0.4.2], [Z3 (Spacer) v4.12.1], [cvc5 v1.0.5], [OpenSMT v2.5.0], [SMTInterpol (checker) v2.5-1259-gf8124b1f], [veriT v2021.06.2-rmx], [Carcara v1.0.0], [LFSC checker 9aab068], and the [latest version of TSWC].
+* The [2022 benchmarks] used came from the LIA-lin and LIA-nonlin tracks, and have been validated with the following tools: [Eldarica v2.0.8], [Golem v0.4.2], [Z3 (Spacer) v4.12.1], [cvc5 v1.0.5], [OpenSMT v2.5.0], [SMTInterpol (checker) v2.5-1259-gf8124b1f], [veriT v2021.06.2-rmx], [Carcara v1.0.0], [LFSC checker 9aab068], and the [latest version of TSWC].
 
-The [2024 benchmarks] used came from the LIA-lin, LIA-nonlin, LIA-Arrays-lin, and LIA-Arrays-nonlin tracks, and have been validated with the following tools: [Eldarica v2.1], [Golem v0.5.0], [Z3 (Spacer) v4.13], [cvc5 v1.1.2], [OpenSMT v2.6.0], [SMTInterpol (checker) v2.5-1256-g55d6ba76], [veriT v2021.06.2-rmx], [alfc eca2cbd], [Carcara v1.1.0], [LFSC checker 5a127db], and the [latest version of TSWC].
+* The [2024 benchmarks] used came from the LIA-lin, LIA-nonlin, LIA-Arrays-lin, and LIA-Arrays-nonlin tracks, and have been validated with the following tools: [Eldarica v2.1], [Golem v0.5.0], [Z3 (Spacer) v4.13], [cvc5 v1.1.2], [OpenSMT v2.6.0], [SMTInterpol (checker) v2.5-1256-g55d6ba76], [veriT v2021.06.2-rmx], [alfc eca2cbd], [Carcara v1.1.0], [LFSC checker 5a127db], and the [latest version of TSWC].
 
 A large part of the [SMT instance generator] was implemented by Fedor Gromov.
 
 ## Publication
 
 To know more about the theory behind ATHENA, as well as its applications, have a look at our [iFM23 paper].
+
+[^1]: The alfc checker has been recently rebranded *ethos*. According to [@ajreynol] this was only a name change on the checker side, with the codebase carrying over from alfc. Together with this change, however, the relation between cvc5 and alfc/ethos has been refactored and ATHENA has not yet been updated to accommodate for it. For the time being, support is available for [cvc5 v1.1.2] and [alfc eca2cbd].
+
+[@ajreynol]: https://github.com/ajreynol
 
 [GNU parallel]: https://www.gnu.org/software/parallel
 [Python 3]: https://www.python.org/downloads
