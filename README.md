@@ -54,9 +54,9 @@ The framework is currently capable of validating models produced for LIA and ALI
 
 A large part of the [SMT instance generator] was implemented by Fedor Gromov.
 
-## Publication
+## Publications
 
-To know more about the theory behind ATHENA, as well as its applications, have a look at our [iFM23 paper].
+To know more about the theory behind ATHENA, as well as its applications, have a look at our papers published at [FAC] and [iFM23].
 
 [^1]: The alfc checker has been recently rebranded *ethos*. According to [@ajreynol] this was only a name change on the checker side, with the codebase carrying over from alfc. Together with this change, however, the relation between cvc5 and alfc/ethos has been refactored and ATHENA has not yet been updated to accommodate for it. For the time being, support is available for [cvc5 v1.1.2] and [alfc eca2cbd].
 
@@ -108,4 +108,5 @@ To know more about the theory behind ATHENA, as well as its applications, have a
 [LFSC checker 5a127db]: https://github.com/cvc5/LFSC/commit/5a127dbbcf9a0f822768e783dbf892ee90c435d5
 
 [SMT instance generator]: https://github.com/usi-verification-and-security/chc-model-validator/blob/master/scripts/generate_chc_witness_checks.py
-[iFM23 paper]: https://doi.org/10.1007/978-3-031-47705-8_4
+[iFM23]: https://doi.org/10.1007/978-3-031-47705-8_4
+[FAC]: https://doi.org/10.1145/3716505
