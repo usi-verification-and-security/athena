@@ -60,7 +60,9 @@ function call_count_entries () {
     count_entries $1 "count_memout"        "memout"    
     count_entries $1 "count_uncategorized" "uncategorized"
 
-    total=$((count_valid + count_invalid + count_unknown + count_error + count_unsupported + count_timeout + count_memout + count_uncategorized))
+    total=$((count_valid + count_holey + count_invalid + count_unknown + count_error + count_unsupported + count_timeout + count_memout + count_uncategorized))
+
+    count_valid=$((count_valid + count_holey))
 
     echo "********** Results for $chcSolver with $target: $1 **********"
     echo "Benchmarks analysed: $total"
