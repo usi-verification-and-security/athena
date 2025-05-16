@@ -40,7 +40,7 @@ The input CHC files have to follow the CHC-COMP format. If your files are follow
 
 ### Metrics
 
-To gather the average sizes of models and proofs, as well as the average runtimes and memory consumptions, execute `log_stats_all.sh` followed by `python3 avg_stats_all.py` in the `scripts` folder. After that, the classification of individual tool results obtained, e.g., SAT or UNSAT, can be seen by executing `stats_all.sh`. To generate plots displaying the sizes of models and proofs execute `make_gnuplot_proof-size.sh`.
+To gather the average sizes of models and proofs, as well as the average runtimes and memory consumptions, execute `log_stats_all.sh` followed by `python3 avg_stats_all.py` in the `scripts` folder. After that, the classification of individual tool results obtained, e.g., SAT or UNSAT, can be seen by executing `stats_all.sh`. To generate plots displaying the sizes of proofs execute `make_gnuplot_proof-size.sh`.
 
 To aggregate all individual tool results and to establish the validity of the CHC benchmarks execute `log_results_all.sh`. After that, the aggregate results can be displayed by executing `results_all.sh`.
 
@@ -56,7 +56,7 @@ A large part of the [SMT instance generator] was implemented by Fedor Gromov.
 
 ## Publications
 
-To know more about the theory behind ATHENA, as well as its applications, have a look at our papers published at [FAC] and [iFM23].
+To know more about the theory behind ATHENA, as well as its applications, have a look at our papers published at [iFM23] and [FAC].
 
 [^1]: The alfc checker has been recently rebranded *ethos*. According to [@ajreynol] this was only a name change on the checker side, with the codebase carrying over from alfc. Together with this change, however, the relation between cvc5 and alfc/ethos has been refactored and ATHENA has not yet been updated to accommodate for it. For the time being, support is available for [cvc5 v1.1.2] and [alfc eca2cbd].
 
